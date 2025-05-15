@@ -173,23 +173,18 @@ footer {
     letter-spacing: 1px;
 }
 
-.b display: inline-block;
-background: #ff69b4;
-color: #fff;
-border-radius: 20px;
-padding: 10px 22px;
-margin: 10px 0;
-font-weight: bold;
-text-decoration: none;
-border: 2px solid #ffd700;
-box-shadow: 2px 2px 0 #ffd700;
-transition: background 0.2s,
-color 0.2s;
-}
-
-.bmc-btn:hover {
-    background: #ffd700;
-    color: #ff69b4;
+.bmc-btn {
+    display: inline-block;
+    background: #ff69b4;
+    color: #fff;
+    border-radius: 20px;
+    padding: 10px 22px;
+    margin: 10px 0;
+    font-weight: bold;
+    text-decoration: none;
+    border: 2px solid #ffd700;
+    box-shadow: 2px 2px 0 #ffd700;
+    transition: background 0.2s, color 0.2s;
 }
 
 .suggestions {
