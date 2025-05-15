@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>DevSaitRienFaire.com</title>
+    <link rel="stylesheet" href="style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#ff69b4">
+    <link rel="manifest" href="manifest.json">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://www.soundjay.com">
+    <script src="stats.js" defer></script>
+    <script src="app.js" defer></script>
+    <script src="script.js" defer></script>
+    <!-- Assurez-vous que icon-192x192.png et icon-512x512.png existent à la racine du projet -->
+</head>
+<body>
+    <div id="mascotte" style="position:fixed;right:10px;bottom:10px;z-index:99;font-size:2.5em;pointer-events:none;animation:bounce 2s infinite;">
+        🦄
+    </div>
+    <!-- Bandeau sticky café -->
+    <div id="sticky-cafe" style="position:sticky;top:0;z-index:100;background:#ffd700;color:#ff69b4;font-weight:bold;padding:8px 0;box-shadow:0 2px 8px #ff69b4a0;letter-spacing:1px;">
+        😁 Ce site t’a fait sourire ? 
+        <a href="https://www.buymeacoffee.com/TON_IDENTIFIANT" target="_blank" style="color:#ff69b4;text-decoration:underline;">
+            Offre-moi un café !
+        </a>
+    </div>
+    <div id="points-display" style="position:fixed;right:10px;top:10px;z-index:101;background:#ffd700;padding:8px 15px;border-radius:20px;box-shadow:0 2px 8px #ff69b4a0;">
+        🏆 Points: 0
+    </div>
+    <div id="streak-display">🔥 0 jours de streak!</div>
+    <h1>
+        Bienvenue sur DevSaitRienFaire.com
+        <span class="badge-retro">🚀 Certifié 100% Inutile</span>
+    </h1>
+    <p class="slogan">Le site le plus inutile qui fait le plus sourire (même ta grand-mère va kiffer).</p>
+    <p style="font-size:1.1em;margin:0 0 10px 0;">
+        <span style="background:#ffd700;padding:4px 12px;border-radius:12px;box-shadow:0 1px 6px #ff69b455;">
+            😜 Clique partout, tout est inutile (et c'est ça qui est utile) !
+        </span>
+    </p>
+    <img src="https://media.giphy.com/media/3o7TKtnuHOHHUjR38Y/giphy.gif" alt="gif retro" class="gif-retro">
+    <p>Un site inutile, créé avec trop peu de sommeil.</p>
+    <nav>
+        <button onclick="showApp('mood')" data-emoji="😶‍🌫️">Mood du Dev</button>
+        <button onclick="showApp('productivite')" data-emoji="📈">Indice de productivité</button>
+        <button onclick="showApp('call')" data-emoji="📞">Réunion inutile</button>
+        <button onclick="showApp('linkedin')" data-emoji="💼">Post LinkedIn Bullshit</button>
+        <button onclick="showApp('commit')" data-emoji="📝">Commit Useless</button>
+        <button onclick="showApp('bullshit')" data-emoji="🤖">GPT du Bullshit Tech</button>
+        <button onclick="showApp('clicker')" data-emoji="☕">Clique pour un café</button>
+        <button onclick="showApp('cvmytho')" data-emoji="🦸">CV de dev mytho</button>
+        <button onclick="showApp('excuse')" data-emoji="🙈">Excuse du jour</button>
+        <button onclick="showApp('proverbe')" data-emoji="🍀">Proverbe bidon</button>
+        <button onclick="showApp('blague')" data-emoji="😂">Blague du jour</button>
+        <button onclick="partagerSite()" data-emoji="📤">Partager ce site</button>
+        <button onclick="roulette()" data-emoji="🎲"></button>
+        <button onclick="toggleRetro()" data-emoji="🕹️">Mode Années 90</button>
+    </nav>
+    <div id="app-container">
+        <div id="mood" class="app" data-description="Découvre ton humeur de dev du jour">
+            <h2>Mood du Dev</h2>
+            <p id="mood-result">Clique pour ton mood !</p>
+            <button onclick="generateMood()">Quel est mon mood ?</button>
+        </div>
+        <div id="productivite" class="app" data-description="Calcule ta productivité (ou pas)">
+            <h2>Indice de productivité</h2>
+            <input type="number" id="heures" placeholder="Heures travaillées">
+            <input type="number" id="taches" placeholder="Tâches terminées">
+            <button onclick="calculerProductivite()">Calculer</button>
+            <p id="prod-result"></p>
+        </div>
+        <div id="call" class="app">
+            <h2>Réunion inutile</h2>
+            <button onclick="lancerReunion()">Start Call</button>
+            <audio id="call-audio" src="https://www.soundjay.com/people/mumbling-1.mp3" preload="auto"></audio>
+            <p id="call-result"></p>
+        </div>
+        <div id="linkedin" class="app">
+            <h2>Générateur de post LinkedIn Bullshit</h2>
+            <span class="badge-linkedin">✔️ LinkedIn Certified Bullshit</span>
+            <button onclick="generatePost()">Générer un post</button>
+            <button onclick="copierPost()">Copier le post</button>
+            <button onclick="partagerLinkedin()">Partager sur LinkedIn</button>
+            <p id="post-result"></p>
+        </div>
+        <div id="commit" class="app">
+            <h2>Générateur de commit useless</h2>
+            <button onclick="generateCommit()">Générer un commit</button>
+            <button onclick="copierCommit()">Copier le commit</button>
+            <p id="commit-result"></p>
+        </div>
+        <div id="bullshit" class="app">
+            <h2>GPT du Bullshit Tech</h2>
+            <button onclick="generateBullshit()">Générer du bullshit</button>
+            <button onclick="copierBullshit()">Copier le bullshit</button>
+            <p id="bullshit-result"></p>
+        </div>
+        <div id="clicker" class="app">
+            <h2>☕ Clique pour un café</h2>
+            <button id="coffee-btn" onclick="clickCoffee()">Clique ici !</button>
+            <p id="coffee-count">Cafés offerts : 0</p>
+            <p id="coffee-message"></p>
+        </div>
+        <div id="cvmytho" class="app">
+            <h2>Générateur de CV de dev mytho</h2>
+            <button onclick="generateCV()">Générer une ligne de CV</button>
+            <button onclick="copierCV()">Copier la ligne</button>
+            <p id="cv-result"></p>
+        </div>
+        <div id="excuse" class="app">
+            <h2>Excuse du jour</h2>
+            <button onclick="generateExcuse()">Générer une excuse</button>
+            <button onclick="copierExcuse()">Copier l'excuse</button>
+            <p id="excuse-result"></p>
+        </div>
+        <div id="proverbe" class="app">
+            <h2>Générateur de proverbe bidon</h2>
+            <button onclick="generateProverbe()">Générer un proverbe</button>
+            <button onclick="copierProverbe()">Copier le proverbe</button>
+            <p id="proverbe-result"></p>
+        </div>
+        <div id="blague" class="app">
+            <h2>Blague du jour</h2>
+            <button onclick="generateBlague()">Générer une blague</button>
+            <button onclick="copierBlague()">Copier la blague</button>
+            <button onclick="showPremiumBlague()">Débloquer une blague premium ☕</button>
+            <p id="blague-result"></p>
+            <div id="premium-blague" style="display:none;margin-top:15px;background:#ff69b4;color:#fff;padding:10px 12px;border-radius:12px;font-weight:bold;"></div>
+        </div>
+    </div>
+    <div id="don-message" style="display:none; margin:30px auto; max-width:400px; background:#fffbe7; border:2px solid #ff69b4; border-radius:10px; padding:15px; font-size:1.1em;">
+        😎 Tu t’amuses ? <b>Paye-moi un café !</b> <br>
+        <a href="https://www.buymeacoffee.com/TON_IDENTIFIANT" target="_blank" class="bmc-btn">☕ Offrir un café</a>
+        <div style="font-size:0.9em; margin-top:8px;">(C’est prouvé, donner rend heureux. Surtout moi.)</div>
+    </div>
+    <div id="loading-overlay" style="display:none">
+        <div class="loading-spinner">⌛</div>
+    </div>
+    <section class="suggestions">
+        <h3>Une idée d'app inutile à ajouter ?</h3>
+        <p>Propose-la sur <a href="https://github.com/tonpseudo/DevSaitRienFaire/issues" target="_blank">GitHub</a> ou sur <a href="https://twitter.com/" target="_blank">Twitter</a> !</p>
+    </section>
+    <section class="rewards" style="margin:30px auto;max-width:400px;text-align:center;">
+        <h3>🎯 Objectifs</h3>
+        <div class="reward-list">
+            <p>50 points - Débloquer le mode coloré 🌈</p>
+            <p>100 points - Débloquer un son spécial 🔊</p>
+            <p>500 points - Débloquer toutes les blagues premium ⭐</p>
+            <p>1000 points - Débloquer un secret... 🤫</p>
+            <p data-points="2000">2000 points - Mode Matrix 🕶️</p>
+            <p data-points="5000">5000 points - Devenir une LÉGENDE 👑</p>
+        </div>
+    </section>
+    <div class="quick-help">
+        <button onclick="toggleHelp()" class="help-button">❓ Aide</button>
+        <div class="help-content" style="display:none;">
+            <h3>Comment ça marche ?</h3>
+            <ul>
+                <li>👆 Clique sur les boutons pour découvrir chaque fonction</li>
+                <li>🏆 Gagne des points en interagissant</li>
+                <li>🎁 Débloque des récompenses avec tes points</li>
+                <li>🎲 Utilise la roulette pour une surprise!</li>
+            </ul>
+        </div>
+    </div>
+    <footer>
+        <a href="https://www.buymeacoffee.com/TON_IDENTIFIANT" target="_blank" class="bmc-btn">
+            ☕ Ce site t’a fait sourire ? Paie-moi un café (ou un Red Bull) !
+        </a><br>
+        <a href="https://github.com/NadjibGue/passtemps" target="_blank">Voir le code</a>
+        <div>
+            <!-- Remplacer le compteur bloqué -->
+            <div id="visit-counter" style="margin-top:10px;color:#666;font-size:0.9em;">
+                👀 Visiteurs: <span id="counter">0</span>
+            </div>
+        </div>
+    </footer>
+    <section class="about-bmc" style="max-width:500px;margin:40px auto 20px auto;background:#fffbe7;border:2px solid #ffd700;border-radius:14px;padding:18px 20px;box-shadow:0 2px 10px #ff69b455;color:#111;">
+        <h3>☕ À propos du café</h3>
+        <p>
+            Ce site est un projet fun et 100% inutile, créé pour faire sourire la communauté dev (et au-delà !).<br>
+            Si tu as ri, appris une excuse bidon, ou juste perdu du temps avec plaisir, tu peux soutenir le projet en m'offrant un café.<br>
+            <b>Chaque café reçu motive à ajouter de nouvelles fonctionnalités inutiles (mais drôles) !</b><br>
+            Merci pour ton soutien, même un simple partage fait plaisir ! 🚀
+        </p>
+        <a href="https://www.buymeacoffee.com/TON_IDENTIFIANT" target="_blank" class="bmc-btn" style="margin-top:10px;">☕ Offrir un café</a>
+    </section>
+    <button onclick="resetPoints()" class="reset-points">🔄 Réinitialiser les points</button>
+    <button onclick="document.body.classList.toggle('dark-mode')" class="reset-points" style="background:#222;margin-left:10px;">🌙 Mode sombre</button>
+</body>
+</html>

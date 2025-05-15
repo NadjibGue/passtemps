@@ -1,0 +1,904 @@
+body {
+    background: linear-gradient(135deg, #fffbf0 80%, #ff69b4 100%);
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    color: #333;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    background: #ff69b4;
+    color: white;
+    padding: 20px;
+    text-shadow: 2px 2px 2px #000;
+    font-family: 'Impact', 'Comic Sans MS', cursive, sans-serif;
+    letter-spacing: 2px;
+    border-bottom: 4px double #ffd700;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    box-shadow: 0 4px 16px #ff69b4a0;
+}
+
+.slogan {
+    font-size: 1.3em;
+    color: #ff69b4;
+    margin-bottom: 10px;
+    font-style: italic;
+    text-shadow: 1px 1px 0 #fff, 2px 2px 2px #ff69b4;
+    background: linear-gradient(90deg, #ff69b4, #ffd700, #00ffff, #ff69b4 80%);
+    background-size: 200% auto;
+    color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: rainbow 2.5s linear infinite;
+}
+
+/* Navigation grid layout */
+nav {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+button {
+    margin: 5px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #ff69b4, #ffd700);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+button::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.8) 0%, rgba(255, 255, 255, 0) 60%);
+    transform: translate(-50%, -50%) scale(0);
+    opacity: 0;
+    transition: transform 0.4s, opacity 0.3s;
+}
+
+button:active::before {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+    transition: 0s;
+}
+
+button:hover {
+    background: linear-gradient(45deg, #ff69b4, #ffd700);
+    color: #fff;
+    transform: scale(1.07) rotate(-2deg);
+    box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+}
+
+button:active {
+    transform: scale(0.97) rotate(1deg);
+}
+
+button:after {
+    content: attr(data-emoji);
+    margin-left: 8px;
+    font-size: 1.1em;
+    vertical-align: middle;
+    opacity: 0.7;
+}
+
+.app {
+    display: none;
+    margin-top: 20px;
+    background: #fffbe7;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px #ff69b455, 0 1.5px 0 #ffd700;
+    padding: 24px 10px 18px 10px;
+    max-width: 420px;
+    margin: 30px auto 0 auto;
+    position: relative;
+    z-index: 1;
+    transition: transform 0.15s, box-shadow 0.15s;
+    background: rgba(255, 251, 231, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 105, 180, 0.2);
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.app:hover {
+    transform: translateY(-5px) rotateX(5deg);
+    box-shadow: 0 15px 30px rgba(255, 105, 180, 0.3);
+}
+
+footer {
+    margin-top: 40px;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+.gif-retro {
+    width: 120px;
+    margin: 10px auto 20px auto;
+    display: block;
+    border: 3px dashed #ffd700;
+    border-radius: 12px;
+    background: #fff;
+}
+
+.badge-retro {
+    background: #ffd700;
+    color: #ff69b4;
+    font-size: 0.7em;
+    padding: 4px 10px;
+    border-radius: 12px;
+    margin-left: 10px;
+    vertical-align: middle;
+    border: 2px solid #ff69b4;
+    box-shadow: 1px 1px 0 #fff;
+}
+
+.badge-linkedin {
+    background: #0077b5;
+    color: #fff;
+    font-size: 0.8em;
+    padding: 3px 8px;
+    border-radius: 8px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: bold;
+    letter-spacing: 1px;
+}
+
+.b display: inline-block;
+background: #ff69b4;
+color: #fff;
+border-radius: 20px;
+padding: 10px 22px;
+margin: 10px 0;
+font-weight: bold;
+text-decoration: none;
+border: 2px solid #ffd700;
+box-shadow: 2px 2px 0 #ffd700;
+transition: background 0.2s,
+color 0.2s;
+}
+
+.bmc-btn:hover {
+    background: #ffd700;
+    color: #ff69b4;
+}
+
+.suggestions {
+    margin: 40px auto 0 auto;
+    max-width: 400px;
+    background: #fffbe7;
+    border: 2px dashed #ff69b4;
+    border-radius: 12px;
+    padding: 18px 10px;
+    font-size: 1em;
+    color: #333;
+}
+
+/* Amélioration de la lisibilité */
+.rewards {
+    color: #333;
+    background: rgba(255, 251, 231, 0.95);
+    backdrop-filter: blur(5px);
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+}
+
+.reward-list p {
+    position: relative;
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.7);
+    transition: all 0.3s ease;
+    cursor: default;
+}
+
+.reward-list p[data-unlocked="true"] {
+    background: rgba(255, 215, 0, 0.2);
+    transform: translateX(10px);
+    color: #00a000;
+    font-weight: bold;
+    animation: bounce 0.7s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1) translateX(0);
+    }
+
+    30% {
+        transform: scale(1.15) translateX(10px);
+    }
+
+    60% {
+        transform: scale(0.95) translateX(10px);
+    }
+
+    100% {
+        transform: scale(1) translateX(10px);
+    }
+}
+
+.reward-list p[data-unlocked="true"]::after {
+    content: "✨";
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    animation: sparkle 1s infinite;
+}
+
+/* Animation de notification */
+@keyframes rewardNotification {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+.reward-notification {
+    animation: rewardNotification 0.5s ease;
+}
+
+.loading {
+    position: relative;
+    opacity: 0.7;
+}
+
+.loading::after {
+    content: "⌛";
+    animation: rotate 1s infinite;
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Achievement popup */
+.achievement-popup {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 215, 0, 0.95);
+    padding: 15px 25px;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    animation: slideUp 0.5s, fadeOut 0.5s 2.5s;
+}
+
+@keyframes slideUp {
+    from {
+        transform: translate(-50%, 100%);
+    }
+
+    to {
+        transform: translate(-50%, 0);
+    }
+}
+
+@keyframes fadeOut {
+    to {
+        opacity: 0;
+    }
+}
+
+/* Streak display */
+#streak-display {
+    position: fixed;
+    left: 10px;
+    top: 10px;
+    z-index: 101;
+    background: linear-gradient(45deg, #ff69b4, #ffd700);
+    color: white;
+    padding: 8px 15px;
+    border-radius: 20px;
+    font-weight: bold;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    animation: pulse 2s infinite;
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #1a1a1a 80%, #ff69b4 100%);
+        color: #fff;
+    }
+
+    .app {
+        background: rgba(255, 251, 231, 0.1);
+        backdrop-filter: blur(10px);
+    }
+
+    .custom-alert,
+    .rewards,
+    .help-content,
+    .suggestions {
+        color: #333;
+    }
+}
+
+/* Style rétro années 90 */
+body.retro {
+    background: repeating-linear-gradient(45deg, #ff00ff, #00ffff 50px) !important;
+    font-family: 'VT323', 'Courier New', monospace !important;
+}
+
+body.retro .app {
+    background: #000033;
+    color: #00ff00;
+    border: 3px solid #ff00ff;
+    box-shadow: 8px 8px 0 #00ffff;
+    text-shadow: 2px 2px #000;
+}
+
+body.retro button {
+    background: #ff00ff;
+    color: #fff;
+    border: 3px solid #00ffff;
+    text-shadow: 2px 2px #000;
+    box-shadow: 4px 4px 0 #000;
+    font-family: 'VT323', 'Courier New', monospace;
+}
+
+body.retro h1,
+body.retro h2 {
+    color: #00ffff;
+    text-shadow: 3px 3px #ff00ff;
+    font-family: 'VT323', 'Courier New', monospace;
+}
+
+/* Alerte stylée */
+.custom-alert {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 251, 231, 0.95);
+    backdrop-filter: blur(10px);
+    border: 2px solid #ff69b4;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 5px 30px rgba(255, 105, 180, 0.3);
+    z-index: 1000;
+    max-width: 300px;
+    animation: alertPop 0.3s ease-out;
+    color: #333;
+}
+
+.custom-alert-content {
+    margin-bottom: 20px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.custom-alert-button {
+    background: #ff69b4;
+    color: white;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: transform 0.2s;
+}
+
+.custom-alert-button:hover {
+    transform: scale(1.05);
+}
+
+@keyframes alertPop {
+    0% {
+        transform: translate(-50%, -50%) scale(0.7);
+        opacity: 0;
+    }
+
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Mode coloré amélioré */
+body.color-mode {
+    background: linear-gradient(45deg, #ff69b4, #ffd700, #00ffff, #ff69b4);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+}
+
+body.color-mode .app {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+body.color-mode button {
+    background: rgba(255, 105, 180, 0.7);
+    border: none;
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Guide utilisateur */
+.tutorial-tooltip {
+    position: fixed;
+    background: rgba(255, 105, 180, 0.95);
+    color: white;
+    padding: 15px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    max-width: 250px;
+    animation: tooltipPop 0.3s ease-out;
+}
+
+.tutorial-tooltip .tooltip-content {
+    margin-bottom: 15px;
+    font-size: 1.1em;
+    line-height: 1.4;
+}
+
+.tutorial-tooltip button {
+    background: white;
+    color: #ff69b4;
+    border: none;
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-size: 0.9em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+    display: block;
+    margin: 0 auto;
+}
+
+.tutorial-tooltip button:hover {
+    transform: scale(1.05);
+    background: white;
+    color: #ff69b4;
+}
+
+@keyframes tooltipPop {
+    from {
+        opacity: 0;
+        transform: scale(0.8) translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* Amélioration visuelle des sections */
+.app {
+    position: relative;
+}
+
+.app::before {
+    content: attr(data-description);
+    position: absolute;
+    top: -25px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.9em;
+    color: #ff69b4;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 3px 10px;
+    border-radius: 10px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.app:hover::before {
+    opacity: 1;
+}
+
+/* Indicateurs d'action */
+button:not(:disabled)::after {
+    content: "Cliquez-moi!";
+    position: absolute;
+    bottom: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 0.8em;
+    color: #ff69b4;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+button:not(:disabled):hover::after {
+    opacity: 1;
+}
+
+/* Nouveaux badges */
+.new-feature::after {
+    content: "NOUVEAU!";
+    position: absolute;
+    top: -8px;
+    right: -8px;
+    background: #ffd700;
+    color: #ff69b4;
+    font-size: 0.7em;
+    padding: 3px 8px;
+    border-radius: 10px;
+    animation: pulse 2s infinite;
+}
+
+/* Guide des fonctionnalités */
+.feature-tooltip {
+    position: absolute;
+    top: -60px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(255, 105, 180, 0.95);
+    color: white;
+    padding: 10px 15px;
+    border-radius: 10px;
+    font-size: 0.9em;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    z-index: 100;
+    animation: tooltipPop 0.3s ease-out;
+}
+
+.feature-tooltip::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 8px solid transparent;
+    border-top-color: rgba(255, 105, 180, 0.95);
+}
+
+/* Amélioration des boutons */
+button {
+    margin: 5px;
+    padding: 12px 25px;
+    font-size: 1.1em;
+    font-weight: bold;
+    border-radius: 50px;
+    border: none;
+    background: linear-gradient(45deg, #ff69b4, #ffd700);
+    color: white;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+button:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 8px 25px rgba(255, 105, 180, 0.4);
+}
+
+button:active {
+    transform: translateY(1px) scale(0.98);
+}
+
+/* Roulette améliorée */
+button[onclick*="roulette"] {
+    width: 60px;
+    height: 60px;
+    padding: 0;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff69b4, #ffd700, #00ffff);
+    background-size: 200% 200%;
+    animation: gradient 3s ease infinite;
+    font-size: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+button[onclick*="roulette"]::before {
+    content: "🎲";
+    position: absolute;
+    animation: spin 2s linear infinite;
+}
+
+button[onclick*="roulette"]:hover {
+    transform: rotate(180deg) scale(1.1);
+    animation: gradient 1s ease infinite;
+}
+
+@keyframes gradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* Animation de clic */
+.button-click {
+    animation: click 0.3s ease;
+}
+
+@keyframes click {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.95);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    nav {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+        padding: 10px;
+    }
+
+    button {
+        padding: 10px 15px;
+        font-size: 0.95em;
+    }
+
+    h1 {
+        font-size: 1.5em;
+        padding: 15px 10px;
+    }
+
+    .badge-retro {
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+    }
+
+    .app {
+        margin: 20px 10px;
+        padding: 15px;
+    }
+
+    #points-display {
+        font-size: 0.9em;
+        padding: 6px 12px;
+    }
+
+    #streak-display {
+        font-size: 0.9em;
+        padding: 6px 12px;
+        left: 5px;
+        top: 5px;
+    }
+
+    .quick-help {
+        bottom: 10px;
+        right: 10px;
+    }
+
+    .help-content {
+        width: 250px;
+        font-size: 0.9em;
+    }
+
+    .reward-list p {
+        font-size: 0.9em;
+        padding: 10px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    nav {
+        grid-template-columns: 1fr;
+    }
+
+    button[onclick*="roulette"] {
+        width: 50px;
+        height: 50px;
+        margin: 10px auto;
+    }
+
+    .custom-alert {
+        width: 90%;
+        max-width: none;
+        font-size: 0.9em;
+    }
+
+    #sticky-cafe {
+        font-size: 0.85em;
+        padding: 5px 0;
+    }
+
+    #mascotte {
+        font-size: 2em;
+        right: 5px;
+        bottom: 5px;
+    }
+
+    .help-content {
+        width: 200px;
+        right: -10px;
+    }
+
+    .feature-tooltip {
+        max-width: 200px;
+        font-size: 0.85em;
+    }
+}
+
+/* Ajustements pour les écrans tactiles */
+@media (hover: none) {
+    button:hover {
+        transform: none;
+    }
+
+    .app:hover {
+        transform: none;
+    }
+
+    button:not(:disabled)::after {
+        display: none;
+    }
+}
+
+/* Ajustements pour l'orientation paysage sur mobile */
+@media screen and (max-height: 500px) and (orientation: landscape) {
+    nav {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .app {
+        margin: 10px auto;
+    }
+
+    #points-display,
+    #streak-display {
+        font-size: 0.8em;
+    }
+}
+
+/* Support pour les grands écrans */
+@media screen and (min-width: 1400px) {
+    nav {
+        grid-template-columns: repeat(7, 1fr);
+        max-width: 1400px;
+    }
+
+    .app {
+        max-width: 600px;
+    }
+}
+
+button.reset-points {
+    background: #ff0000;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+button.reset-points:hover {
+    transform: scale(1.1);
+    background: #cc0000;
+}
+
+/* Amélioration du mode sombre */
+body.dark-mode {
+    background: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .app {
+    background: #1e1e1e;
+    color: #ffffff;
+}
+
+body.matrix-mode {
+    background: #000 !important;
+    color: #00ff41 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+    background-image: linear-gradient(180deg, #000 70%, #003300 100%);
+    animation: matrixBg 3s linear infinite alternate;
+}
+
+body.matrix-mode .app {
+    background: rgba(0, 0, 0, 0.95);
+    color: #00ff41;
+    border: 2px solid #00ff41;
+    box-shadow: 0 0 20px #00ff41a0;
+    text-shadow: 0 0 5px #00ff41;
+}
+
+body.matrix-mode button {
+    background: #003300;
+    color: #00ff41;
+    border: 2px solid #00ff41;
+    text-shadow: 0 0 5px #00ff41;
+    box-shadow: 0 0 10px #00ff41a0;
+}
+
+body.matrix-mode h1,
+body.matrix-mode h2 {
+    color: #00ff41;
+    text-shadow: 0 0 10px #00ff41;
+}
+
+@keyframes matrixBg {
+    0% {
+        background-position: 0 0;
+    }
+
+    100% {
+        background-position: 0 100px;
+    }
+}
